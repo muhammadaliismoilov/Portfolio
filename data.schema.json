@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Generated Schema",
+  "type": "object",
+  "properties": {
+    "CONSTANTS": {
+      "type": "object",
+      "properties": {
+        "certifications": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "link": {
+                "type": "string",
+                "examples": [
+                  "",
+                  "https://freecodecamp.org/certification/ali-ismoilov/javascript-v9"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "examples": [
+                  "JavaScript Algorithms and Data Structures",
+                  "Backend Development (Node.js)"
+                ]
+              },
+              "organization": {
+                "type": "string",
+                "examples": [
+                  "Najot Ta'lim",
+                  "freeCodeCamp"
+                ]
+              },
+              "year": {
+                "type": "string",
+                "examples": [
+                  "2025",
+                  "2024"
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "education": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "degree": {
+                "type": "string",
+                "examples": [
+                  "Bachelor's Degree in Agricultural Mechanization",
+                  "Backend Development (Node.js)"
+                ]
+              },
+              "institution": {
+                "type": "string",
+                "examples": [
+                  "Najot Ta'lim",
+                  "Tashkent Institute of Irrigation and Agricultural Mechanization Engineers National Research University"
+                ],
+                "description": "Long text content"
+              },
+              "years": {
+                "type": "string",
+                "examples": [
+                  "November 2024 \u2013 June 2025",
+                  "September 2020 \u2013 June 2025"
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "experience": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "company": {
+                "type": "string",
+                "examples": [
+                  "Najot Ta'lim (Khorezm branch)",
+                  "Megasoft | TOTMEGA LLC",
+                  "Digital Education Development Center (IT PARK)"
+                ]
+              },
+              "details": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "location": {
+                "type": "string",
+                "examples": [
+                  "Shovot, Khorezm Region, Uzbekistan",
+                  ""
+                ]
+              },
+              "period": {
+                "type": "string",
+                "examples": [
+                  "August 2025 \u2013 November 2025",
+                  "June 2025 \u2013 August 2025",
+                  "October 2025 \u2013 Present"
+                ]
+              },
+              "title": {
+                "type": "string",
+                "examples": [
+                  "Teacher Assistant",
+                  "Mentor",
+                  "Backend Developer Intern"
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "personalInfo": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "examples": [
+                "Khorezm, Uzbekistan"
+              ]
+            },
+            "bio": {
+              "type": "string",
+              "examples": [
+                "Backend Developer specializing in Node.js with hands-on experience in building RESTful APIs, working with SQL and NoSQL databases, and implementing authentication and authorization. Experienced in mentoring students and collaborating in team-based development environments."
+              ],
+              "description": "Long text content"
+            },
+            "email": {
+              "type": "string",
+              "examples": [
+                "rustammuborakmuhammadali@gmail.com"
+              ],
+              "format": "email"
+            },
+            "name": {
+              "type": "string",
+              "examples": [
+                "Ali Ismoilov"
+              ]
+            },
+            "phone": {
+              "type": "string",
+              "examples": [
+                "+998 00 000 00 00"
+              ]
+            },
+            "title": {
+              "type": "string",
+              "examples": [
+                "Backend Developer (Node.js)"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string",
+                "examples": [
+                  "Backend development of a food store automation system. Product & inventory management, sales, payments, expense & profit tracking. RESTful APIs with NestJS & TypeScript. JWT authentication and role-based access control. PostgreSQL with TypeORM, Redis caching. Dockerized and deployed on VPS. The project is currently under active development and uses test data only.",
+                  "Backend for managing barbershops, staff, and customer appointments. Daily revenue, expenses, and customer statistics tracking. Search barbers and locations, profile management. RESTful APIs with NestJS & TypeScript. JWT authentication and role-based permissions. PostgreSQL with TypeORM."
+                ],
+                "description": "Long text content"
+              },
+              "githubLink": {
+                "type": "string",
+                "examples": [
+                  "https://github.com/muhammadaliismoilov/Market",
+                  "https://github.com/muhammadaliismoilov/Barbers"
+                ],
+                "format": "url"
+              },
+              "id": {
+                "type": "string",
+                "examples": [
+                  "project-2",
+                  "project-1"
+                ]
+              },
+              "imageAlias": {
+                "type": "string",
+                "examples": [
+                  "aliBarbersProject",
+                  "aliMarketProject"
+                ]
+              },
+              "swaggerLink": {
+                "type": "string",
+                "examples": [
+                  "https://api.market.example.com/docs",
+                  "https://api.barbers.example.com/docs"
+                ],
+                "format": "url"
+              },
+              "technologies": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "title": {
+                "type": "string",
+                "examples": [
+                  "Barbers Management System (Backend)",
+                  "Market Automation System (Backend)"
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "socialLinks": {
+          "type": "object",
+          "properties": {
+            "github": {
+              "type": "string",
+              "examples": [
+                "https://github.com/muhammadaliismoilov"
+              ],
+              "format": "url"
+            },
+            "linkedin": {
+              "type": "string",
+              "examples": [
+                "https://linkedin.com/in/aliismoilov"
+              ],
+              "format": "url"
+            },
+            "telegram": {
+              "type": "string",
+              "examples": [
+                "https://t.me/aliismoilov"
+              ],
+              "format": "url"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

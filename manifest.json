@@ -1,0 +1,23 @@
+{
+  "name": "3e9fc28dbbbe48acabcd8ccc8ac00922",
+  "short_name": "3e9fc28dbbbe48acabcd8ccc8ac00922",
+  "description": "3e9fc28dbbbe48acabcd8ccc8ac00922",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "assets/thumbnail.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/thumbnail.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

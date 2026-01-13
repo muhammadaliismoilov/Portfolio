@@ -1,0 +1,141 @@
+{
+  "CONSTANTS": {
+    "certifications": [
+      {
+        "link": "",
+        "name": "Backend Development (Node.js)",
+        "organization": "Najot Ta'lim",
+        "year": "2025"
+      },
+      {
+        "link": "https://freecodecamp.org/certification/ali-ismoilov/javascript-v9",
+        "name": "JavaScript Algorithms and Data Structures",
+        "organization": "freeCodeCamp",
+        "year": "2025"
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor's Degree in Agricultural Mechanization",
+        "institution": "Tashkent Institute of Irrigation and Agricultural Mechanization Engineers National Research University",
+        "years": "September 2020 \u2013 June 2025"
+      },
+      {
+        "degree": "Backend Development (Node.js)",
+        "institution": "Najot Ta'lim",
+        "years": "November 2024 \u2013 June 2025"
+      }
+    ],
+    "experience": [
+      {
+        "company": "Digital Education Development Center (IT PARK)",
+        "details": [
+          "Mentored school students in Backend development using Node.js",
+          "Taught core backend technologies: JavaScript, TypeScript, Node.js, Express.js, NestJS",
+          "Introduced students to REST API development and database fundamentals (MongoDB, PostgreSQL)",
+          "Helped students understand complex backend concepts through practical examples",
+          "Reviewed homework assignments and provided constructive code feedback"
+        ],
+        "location": "Shovot, Khorezm Region, Uzbekistan",
+        "period": "October 2025 \u2013 Present",
+        "title": "Mentor"
+      },
+      {
+        "company": "Megasoft | TOTMEGA LLC",
+        "details": [
+          "Developed efficient and scalable RESTful APIs using Drizzle ORM and PostgreSQL",
+          "Optimized SQL queries, improving database performance and request speed",
+          "Designed and implemented CRUD operations",
+          "Prepared API documentation using Swagger, improving collaboration between frontend and backend teams"
+        ],
+        "location": "",
+        "period": "August 2025 \u2013 November 2025",
+        "title": "Backend Developer Intern"
+      },
+      {
+        "company": "Najot Ta'lim (Khorezm branch)",
+        "details": [
+          "Assisted instructors during backend development classes",
+          "Supported students with Node.js, JavaScript, Express.js, and database basics",
+          "Helped students debug code and understand backend logic",
+          "Checked assignments and tracked students' learning progress"
+        ],
+        "location": "",
+        "period": "June 2025 \u2013 August 2025",
+        "title": "Teacher Assistant"
+      }
+    ],
+    "personalInfo": {
+      "address": "Khorezm, Uzbekistan",
+      "bio": "Backend Developer specializing in Node.js with hands-on experience in building RESTful APIs, working with SQL and NoSQL databases, and implementing authentication and authorization. Experienced in mentoring students and collaborating in team-based development environments.",
+      "email": "rustammuborakmuhammadali@gmail.com",
+      "name": "Ali Ismoilov",
+      "phone": "+998 00 000 00 00",
+      "title": "Backend Developer (Node.js)"
+    },
+    "projects": [
+      {
+        "description": "Backend development of a food store automation system. Product & inventory management, sales, payments, expense & profit tracking. RESTful APIs with NestJS & TypeScript. JWT authentication and role-based access control. PostgreSQL with TypeORM, Redis caching. Dockerized and deployed on VPS. The project is currently under active development and uses test data only.",
+        "githubLink": "https://github.com/muhammadaliismoilov/Market",
+        "id": "project-1",
+        "imageAlias": "aliMarketProject",
+        "swaggerLink": "https://api.market.example.com/docs",
+        "technologies": [
+          "Node.js",
+          "TypeScript",
+          "NestJS",
+          "PostgreSQL",
+          "TypeORM",
+          "Redis",
+          "Docker",
+          "JWT",
+          "Swagger"
+        ],
+        "title": "Market Automation System (Backend)"
+      },
+      {
+        "description": "Backend for managing barbershops, staff, and customer appointments. Daily revenue, expenses, and customer statistics tracking. Search barbers and locations, profile management. RESTful APIs with NestJS & TypeScript. JWT authentication and role-based permissions. PostgreSQL with TypeORM.",
+        "githubLink": "https://github.com/muhammadaliismoilov/Barbers",
+        "id": "project-2",
+        "imageAlias": "aliBarbersProject",
+        "swaggerLink": "https://api.barbers.example.com/docs",
+        "technologies": [
+          "Node.js",
+          "TypeScript",
+          "NestJS",
+          "PostgreSQL",
+          "TypeORM",
+          "JWT"
+        ],
+        "title": "Barbers Management System (Backend)"
+      }
+    ],
+    "skills": [
+      "JavaScript",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "NestJS",
+      "MongoDB",
+      "PostgreSQL",
+      "AWS (EC2)",
+      "REST API",
+      "Swagger",
+      "Postman",
+      "Redis",
+      "Docker",
+      "Git & GitHub",
+      "Sequelize",
+      "TypeORM",
+      "Drizzle ORM",
+      "Mongoose",
+      "JWT",
+      "Telegram Bot"
+    ],
+    "socialLinks": {
+      "github": "https://github.com/muhammadaliismoilov",
+      "linkedin": "https://linkedin.com/in/aliismoilov",
+      "telegram": "https://t.me/aliismoilov"
+    }
+  }
+}

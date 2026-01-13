@@ -1,0 +1,40 @@
+{
+  "bundles": [
+    {
+      "name": "profile",
+      "assets": [
+        {
+          "alias": "main",
+          "src": "./assets/profile/my.png",
+          "data": {
+            "height": 300,
+            "width": 300
+          }
+        }
+      ]
+    },
+    {
+      "name": "projects",
+      "assets": [
+        {
+          "alias": "aliBarbersProject",
+          "src": "https://volter-production-assets-upload.s3.amazonaws.com/3e9fc28dbbbe48acabcd8ccc8ac00922/da1116b7525b44b0a2c5ca307d0ad031/preview/assets/projects/aliBarbersProject.png",
+          "data": {
+            "height": 600,
+            "transparent": false,
+            "width": 800
+          }
+        },
+        {
+          "alias": "aliMarketProject",
+          "src": "https://volter-production-assets-upload.s3.amazonaws.com/3e9fc28dbbbe48acabcd8ccc8ac00922/da1116b7525b44b0a2c5ca307d0ad031/preview/assets/projects/aliMarketProject.png",
+          "data": {
+            "height": 600,
+            "transparent": false,
+            "width": 800
+          }
+        }
+      ]
+    }
+  ]
+}
