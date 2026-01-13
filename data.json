@@ -70,7 +70,7 @@
       "bio": "Backend Developer specializing in Node.js with hands-on experience in building RESTful APIs, working with SQL and NoSQL databases, and implementing authentication and authorization. Experienced in mentoring students and collaborating in team-based development environments.",
       "email": "rustammuborakmuhammadali@gmail.com",
       "name": "Ali Ismoilov",
-      "phone": "+998 00 000 00 00",
+      "phone": "+998 94 926 34 33",
       "title": "Backend Developer (Node.js)"
     },
     "projects": [
@@ -79,7 +79,7 @@
         "githubLink": "https://github.com/muhammadaliismoilov/Market",
         "id": "project-1",
         "imageAlias": "aliMarketProject",
-        "swaggerLink": "https://api.market.example.com/docs",
+        "swaggerLink": "http://212.8.226.173:4005/api/docs",
         "technologies": [
           "Node.js",
           "TypeScript",
