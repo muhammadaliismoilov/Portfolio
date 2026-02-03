@@ -67,15 +67,31 @@
     ],
     "personalInfo": {
       "address": "Khorezm, Uzbekistan",
-      "bio": "Backend Developer specializing in Node.js with hands-on experience in building RESTful APIs, working with SQL and NoSQL databases, and implementing authentication and authorization. Experienced in mentoring students and collaborating in team-based development environments.",
+      "bio": "I am a Backend Developer specializing in building robust and scalable RESTful APIs using Node.js and TypeScript, with hands-on experience in SQL (PostgreSQL) and NoSQL (MongoDB) databases, efficient database schema design, clean and maintainable architecture, JWT-based authentication and Role-Based Access Control (RBAC), as well as integrating Telegram Bots and real-world backend systems; I have successfully delivered multiple backend projects, collaborated in team-based environments, mentored junior students, and continuously focus on clean code, efficient architecture, and learning to solve complex backend challenges, and I am currently open to internship or junior backend developer opportunities.",
       "email": "rustammuborakmuhammadali@gmail.com",
       "name": "Ali Ismoilov",
       "phone": "+998 94 926 34 33",
       "title": "Backend Developer (Node.js)"
     },
     "projects": [
+       {
+        "description": "An advanced, autonomous management ecosystem for modern education centers. This project leverages Event-Driven Architecture and Real-time Monitoring as its core pillars. It features a custom-built notification engine using WebSockets and NestJS Task Scheduling to automate teacher reminders and attendance tracking. The system includes a proactive audit trail for payments through TypeORM Subscribers, ensuring total financial transparency.",
+        "githubLink": "https://github.com/muhammadaliismoilov/education-crm-backend",
+        "id": "project-3",
+        "imageAlias": "eduFlowCrmProject",
+        "swaggerLink": "http://31.128.45.119:3000/api/docs#/",
+        "technologies": [
+          "Node.js",
+          "TypeScript",
+          "NestJS",
+          "PostgreSQL",
+          "TypeORM",
+          "JWT"
+        ],
+        "title": "Education Center CRM System "
+      },
       {
-        "description": "Backend development of a food store automation system. Product & inventory management, sales, payments, expense & profit tracking. RESTful APIs with NestJS & TypeScript. JWT authentication and role-based access control. PostgreSQL with TypeORM, Redis caching. Dockerized and deployed on VPS. The project is currently under active development and uses test data only.",
+        "description": "A high-performance backend system designed for grocery store automation, focusing on inventory management and transaction integrity. The engine handles complex stock tracking, automated sales reporting, and profit-loss analysis. It utilizes Redis caching to optimize data retrieval speeds and is fully Dockerized for seamless deployment on VPS, ensuring consistent environment reliability across production.",
         "githubLink": "https://github.com/muhammadaliismoilov/Market",
         "id": "project-1",
         "imageAlias": "aliMarketProject",
@@ -91,10 +107,10 @@
           "JWT",
           "Swagger"
         ],
-        "title": "Market Automation System (Backend)"
+        "title": "Market Automation System "
       },
       {
-        "description": "Backend for managing barbershops, staff, and customer appointments. Daily revenue, expenses, and customer statistics tracking. Search barbers and locations, profile management. RESTful APIs with NestJS & TypeScript. JWT authentication and role-based permissions. PostgreSQL with TypeORM.",
+        "description": "A robust CRM and booking engine for barbershops and beauty salons. The platform manages complex service scheduling, staff shift rotations, and customer profile tracking. It features a sophisticated Role-Based Access Control (RBAC) system to ensure secure data isolation between administrators, stylists, and clients. Built with NestJS and PostgreSQL, the system focuses on high availability and streamlined business workflows.",
         "githubLink": "https://github.com/muhammadaliismoilov/Barbers",
         "id": "project-2",
         "imageAlias": "aliBarbersProject",
@@ -107,8 +123,9 @@
           "TypeORM",
           "JWT"
         ],
-        "title": "Barbers Management System (Backend)"
+        "title": "Barbers Management System "
       }
+     
     ],
     "skills": [
       "JavaScript",
