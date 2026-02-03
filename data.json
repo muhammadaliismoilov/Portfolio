@@ -81,12 +81,15 @@
         "imageAlias": "eduFlowCrmProject",
         "swaggerLink": "http://31.128.45.119:3000/api/docs#/",
         "technologies": [
-          "Node.js",
+           "Node.js",
           "TypeScript",
           "NestJS",
           "PostgreSQL",
           "TypeORM",
-          "JWT"
+          "Redis",
+          "Docker",
+          "JWT",
+          "Swagger"
         ],
         "title": "Education Center CRM System "
       },
