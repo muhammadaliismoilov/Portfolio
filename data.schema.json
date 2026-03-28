@@ -256,7 +256,7 @@
             "telegram": {
               "type": "string",
               "examples": [
-                "https://t.me/aliismoilov"
+                "https://t.me/aliIsmoilovBackendDev"
               ],
               "format": "url"
             }
