@@ -42,6 +42,105 @@
             "transparent": false,
             "width": 800
           }
+        },
+        {
+          "alias": "schoolManagementProject",
+          "src": "./assets/projects/schoolManagementProject.png",
+          "data": {
+            "height": 600,
+            "transparent": false,
+            "width": 800
+          }
+        },
+        {
+          "alias": "schoolDashboard",
+          "src": "./assets/projects/schoolDashboard.png",
+          "data": {
+            "height": 681,
+            "transparent": false,
+            "width": 1200
+          }
+        },
+        {
+          "alias": "schoolTimetable",
+          "src": "./assets/projects/schoolTimetable.png",
+          "data": {
+            "height": 681,
+            "transparent": false,
+            "width": 1200
+          }
+        },
+        {
+          "alias": "schoolRanking",
+          "src": "./assets/projects/schoolRanking.png",
+          "data": {
+            "height": 681,
+            "transparent": false,
+            "width": 1200
+          }
+        },
+        {
+          "alias": "schoolFinance",
+          "src": "./assets/projects/schoolFinance.png",
+          "data": {
+            "height": 681,
+            "transparent": false,
+            "width": 1200
+          }
+        },
+        {
+          "alias": "schoolCrm",
+          "src": "./assets/projects/schoolCrm.png",
+          "data": {
+            "height": 681,
+            "transparent": false,
+            "width": 1200
+          }
+        },
+        {
+          "alias": "eduCrmDashboard",
+          "src": "./assets/projects/eduCrmDashboard.png",
+          "data": {
+            "height": 794,
+            "transparent": false,
+            "width": 1400
+          }
+        },
+        {
+          "alias": "eduCrmReports",
+          "src": "./assets/projects/eduCrmReports.png",
+          "data": {
+            "height": 791,
+            "transparent": false,
+            "width": 1400
+          }
+        },
+        {
+          "alias": "eduCrmPayments",
+          "src": "./assets/projects/eduCrmPayments.png",
+          "data": {
+            "height": 791,
+            "transparent": false,
+            "width": 1400
+          }
+        },
+        {
+          "alias": "eduCrmAttendance",
+          "src": "./assets/projects/eduCrmAttendance.png",
+          "data": {
+            "height": 791,
+            "transparent": false,
+            "width": 1400
+          }
+        },
+        {
+          "alias": "eduCrmPayroll",
+          "src": "./assets/projects/eduCrmPayroll.png",
+          "data": {
+            "height": 791,
+            "transparent": false,
+            "width": 1400
+          }
         }
       ]
     }

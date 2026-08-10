@@ -37,7 +37,7 @@
           "Reviewed homework assignments and provided constructive code feedback"
         ],
         "location": "Shovot, Khorezm Region, Uzbekistan",
-        "period": "October 2025 \u2013 Present",
+        "period": "October 2025 \u2013 May 2026",
         "title": "Mentor"
       },
       {
@@ -74,14 +74,14 @@
       "title": "Backend Developer (Node.js)"
     },
     "projects": [
-       {
-        "description": "An advanced, autonomous management ecosystem for modern education centers. This project leverages Event-Driven Architecture and Real-time Monitoring as its core pillars. It features a custom-built notification engine using WebSockets and NestJS Task Scheduling to automate teacher reminders and attendance tracking. The system includes a proactive audit trail for payments through TypeORM Subscribers, ensuring total financial transparency.",
+      {
+        "description": "An advanced, autonomous management ecosystem for modern education centers \u2014 live, fully functional, and deployed in production. Built on Event-Driven Architecture with real-time monitoring, it features a custom notification engine (WebSockets + NestJS Task Scheduling) that automates teacher reminders and attendance tracking, role-based access for admins, managers, and teachers, and a proactive audit trail for every payment via TypeORM Subscribers. Explore the live demo \u2014 Login: alishadmin, Password: alishadmin.",
         "githubLink": "https://github.com/muhammadaliismoilov/education-crm-backend",
         "id": "project-3",
         "imageAlias": "eduFlowCrmProject",
-        "swaggerLink": "http://31.128.45.119:3000/api/docs#/",
+        "swaggerLink": "https://crm-oquv-markaz.vercel.app/",
         "technologies": [
-           "Node.js",
+          "Node.js",
           "TypeScript",
           "NestJS",
           "PostgreSQL",
@@ -91,7 +91,14 @@
           "JWT",
           "Swagger"
         ],
-        "title": "Education Center CRM System "
+        "title": "Education Center CRM System ",
+        "imageAliases": [
+          "eduCrmDashboard",
+          "eduCrmReports",
+          "eduCrmPayments",
+          "eduCrmAttendance",
+          "eduCrmPayroll"
+        ]
       },
       {
         "description": "A high-performance backend system designed for grocery store automation, focusing on inventory management and transaction integrity. The engine handles complex stock tracking, automated sales reporting, and profit-loss analysis. It utilizes Redis caching to optimize data retrieval speeds and is fully Dockerized for seamless deployment on VPS, ensuring consistent environment reliability across production.",
@@ -113,22 +120,31 @@
         "title": "Market Automation System "
       },
       {
-        "description": "A robust CRM and booking engine for barbershops and beauty salons. The platform manages complex service scheduling, staff shift rotations, and customer profile tracking. It features a sophisticated Role-Based Access Control (RBAC) system to ensure secure data isolation between administrators, stylists, and clients. Built with NestJS and PostgreSQL, the system focuses on high availability and streamlined business workflows.",
-        "githubLink": "https://github.com/muhammadaliismoilov/Barbers",
+        "description": "A full-scale ERP + CRM + LMS + BI platform built for private schools, currently in active development across two repositories (backend linked below; frontend: github.com/muhammadaliismoilov/school-erp-crm-lms-bi-frontend). Multi-tenant by design \u2014 a superadmin layer manages unlimited schools and branches with strict data isolation enforced via AsyncLocalStorage-based tenant scoping. Spans 50+ backend modules: turnstile-integrated attendance with Telegram/push alerts, HR and payroll, finance, admissions, LMS, library, transport, and analytics. Hardened with JWT refresh-token rotation, Argon2id hashing, wildcard RBAC permissions, and 2FA, with Sentry and Prometheus/Grafana observability built in. Architected to scale past 1000 users per school deployment.",
+        "githubLink": "https://github.com/muhammadaliismoilov/school-erp-crm-lms-bi_backend",
         "id": "project-2",
-        "imageAlias": "aliBarbersProject",
-        "swaggerLink": "https://api.barbers.example.com/docs",
+        "imageAlias": "schoolManagementProject",
+        "imageAliases": [
+          "schoolDashboard",
+          "schoolTimetable",
+          "schoolRanking",
+          "schoolFinance",
+          "schoolCrm"
+        ],
+        "swaggerLink": "",
         "technologies": [
           "Node.js",
           "TypeScript",
           "NestJS",
+          "Next.js",
           "PostgreSQL",
           "TypeORM",
-          "JWT"
+          "Redis",
+          "JWT",
+          "Docker"
         ],
-        "title": "Barbers Management System "
+        "title": "School Management Platform"
       }
-     
     ],
     "skills": [
       "JavaScript",

@@ -66,8 +66,8 @@
               "years": {
                 "type": "string",
                 "examples": [
-                  "November 2024 \u2013 June 2025",
-                  "September 2020 \u2013 June 2025"
+                  "November 2024 – June 2025",
+                  "September 2020 – June 2025"
                 ]
               }
             },
@@ -103,9 +103,9 @@
               "period": {
                 "type": "string",
                 "examples": [
-                  "August 2025 \u2013 November 2025",
-                  "June 2025 \u2013 August 2025",
-                  "October 2025 \u2013 Present"
+                  "August 2025 – November 2025",
+                  "June 2025 – August 2025",
+                  "October 2025 – Present"
                 ]
               },
               "title": {
@@ -201,6 +201,22 @@
                   "aliBarbersProject",
                   "aliMarketProject",
                   "aliEducationCenterProject"
+                ]
+              },
+              "imageAliases": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Optional list of image aliases rendered as a carousel on the project card",
+                "examples": [
+                  [
+                    "schoolDashboard",
+                    "schoolTimetable",
+                    "schoolRanking",
+                    "schoolFinance",
+                    "schoolCrm"
+                  ]
                 ]
               },
               "swaggerLink": {
