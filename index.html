@@ -3,12 +3,331 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Ali Ismoilov | Portfolio</title>
+    <title>Ali Ismoilov | Portfolio</title>
+
+    <meta name="description" content="Ali Ismoilov — Backend Developer specializing in Node.js, NestJS and TypeScript. RESTful APIs, PostgreSQL/MongoDB, JWT auth & RBAC. View projects, experience and CV." />
+    <meta name="author" content="Ali Ismoilov" />
+    <link rel="canonical" href="https://muhammadaliismoilov.github.io/Portfolio/" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://muhammadaliismoilov.github.io/Portfolio/" />
+    <meta property="og:site_name" content="Ali Ismoilov | Portfolio" />
+    <meta property="og:title" content="Ali Ismoilov | Backend Developer (Node.js)" />
+    <meta property="og:description" content="Backend Developer specializing in Node.js, NestJS and TypeScript. RESTful APIs, PostgreSQL/MongoDB, JWT auth & RBAC. View projects, experience and CV." />
+    <meta property="og:image" content="https://muhammadaliismoilov.github.io/Portfolio/assets/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ali Ismoilov — Backend Developer (Node.js / NestJS / TypeScript)" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ali Ismoilov | Backend Developer (Node.js)" />
+    <meta name="twitter:description" content="Backend Developer specializing in Node.js, NestJS and TypeScript. RESTful APIs, PostgreSQL/MongoDB, JWT auth & RBAC." />
+    <meta name="twitter:image" content="https://muhammadaliismoilov.github.io/Portfolio/assets/og-cover.png" />
+
     <link rel="icon" type="image/x-icon" href="./assets/profile/my.png">
     <script type="module" crossorigin src="./index-UKnA1v2E.js"></script>
     <link rel="stylesheet" crossorigin href="./index-BpmaFVIJ.css">
+    <style>
+      .aiv-extra {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: 12px;
+      }
+      .aiv-cv-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 16px;
+        border-radius: 9999px;
+        border: 1px solid rgb(34 211 238);
+        color: rgb(34 211 238);
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background-color .15s ease, color .15s ease;
+      }
+      .aiv-cv-btn:hover {
+        background-color: rgb(34 211 238);
+        color: rgb(17 24 39);
+      }
+      .aiv-cv-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+      .aiv-hamburger {
+        display: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+        color: rgb(209 213 219);
+        line-height: 0;
+      }
+      .aiv-hamburger:hover { color: #fff; }
+      .aiv-hamburger svg { width: 26px; height: 26px; display: block; }
+      .aiv-mobile-menu {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background-color: rgb(17 24 39);
+        border-top: 1px solid rgb(55 65 81);
+        box-shadow: 0 12px 28px rgba(0,0,0,.4);
+        z-index: 90;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .28s ease;
+      }
+      .aiv-mobile-menu.aiv-open { max-height: 520px; }
+      .aiv-mobile-menu a {
+        display: block;
+        padding: 14px 24px;
+        color: rgb(209 213 219);
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+        border-bottom: 1px solid rgba(55,65,81,.5);
+      }
+      .aiv-mobile-menu a:hover, .aiv-mobile-menu a:active {
+        background-color: rgb(31 41 55);
+        color: #fff;
+      }
+      .aiv-mobile-menu a.aiv-cv-link { color: rgb(34 211 238); }
+      @media (max-width: 767px) {
+        .aiv-hamburger { display: inline-flex; align-items: center; justify-content: center; }
+        .aiv-cv-btn-desktop { display: none; }
+      }
+      @media (min-width: 768px) {
+        .aiv-mobile-menu { display: none; }
+      }
+
+      .aiv-skills-grouped { display: flex; flex-direction: column; align-items: center; }
+      .aiv-skill-group { margin-bottom: 24px; }
+      .aiv-skill-group:last-child { margin-bottom: 0; }
+      .aiv-skill-label {
+        text-align: center;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+        color: rgb(103 232 249);
+        opacity: 0.75;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      (function () {
+        var CV_HREF = './assets/Ali_Ismoilov_CV.pdf';
+
+        var cvIconSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+        var burgerSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+        var closeSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+
+        var navLinks = [
+          { href: '#home', label: 'Home' },
+          { href: '#about', label: 'About' },
+          { href: '#projects', label: 'Projects' },
+          { href: '#experience', label: 'Experience' },
+          { href: '#education', label: 'Education' },
+          { href: '#contact', label: 'Contact' }
+        ];
+
+        var mobileMenu = null;
+        var hamburgerBtn = null;
+        var menuOpen = false;
+
+        function closeMenu() {
+          menuOpen = false;
+          if (mobileMenu) mobileMenu.classList.remove('aiv-open');
+          if (hamburgerBtn) {
+            hamburgerBtn.innerHTML = burgerSvg;
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+          }
+        }
+
+        function toggleMenu() {
+          menuOpen = !menuOpen;
+          if (mobileMenu) mobileMenu.classList.toggle('aiv-open', menuOpen);
+          if (hamburgerBtn) {
+            hamburgerBtn.innerHTML = menuOpen ? closeSvg : burgerSvg;
+            hamburgerBtn.setAttribute('aria-expanded', String(menuOpen));
+          }
+        }
+
+        function buildMobileMenu() {
+          var menu = document.createElement('div');
+          menu.className = 'aiv-mobile-menu';
+          navLinks.forEach(function (link) {
+            var a = document.createElement('a');
+            a.href = link.href;
+            a.textContent = link.label;
+            a.addEventListener('click', closeMenu);
+            menu.appendChild(a);
+          });
+          var cvLink = document.createElement('a');
+          cvLink.href = CV_HREF;
+          cvLink.download = 'Ali_Ismoilov_CV.pdf';
+          cvLink.className = 'aiv-cv-link';
+          cvLink.textContent = 'Download CV';
+          cvLink.addEventListener('click', closeMenu);
+          menu.appendChild(cvLink);
+          document.body.appendChild(menu);
+          return menu;
+        }
+
+        var SOCIAL_LABELS = {
+          'https://github.com/muhammadaliismoilov': 'Ali Ismoilov — GitHub profile',
+          'https://linkedin.com/in/aliismoilov': 'Ali Ismoilov — LinkedIn profile',
+          'https://t.me/aliIsmoilov3433': 'Ali Ismoilov — Telegram'
+        };
+
+        function fixSocialLinksAccessibility() {
+          Object.keys(SOCIAL_LABELS).forEach(function (href) {
+            document.querySelectorAll('a[href="' + href + '"]').forEach(function (a) {
+              if (!a.getAttribute('aria-label')) {
+                a.setAttribute('aria-label', SOCIAL_LABELS[href]);
+              }
+            });
+          });
+        }
+
+        var SKILL_CATEGORIES = [
+          { name: 'Languages', skills: ['JavaScript', 'TypeScript'] },
+          { name: 'Backend & Frameworks', skills: ['Node.js', 'Express.js', 'NestJS'] },
+          { name: 'Databases', skills: ['PostgreSQL', 'MongoDB', 'Redis'] },
+          { name: 'ORMs & Data Access', skills: ['TypeORM', 'Drizzle ORM', 'Sequelize', 'Mongoose'] },
+          { name: 'API & Auth', skills: ['REST API', 'JWT', 'Swagger', 'Postman'] },
+          { name: 'DevOps & Tools', skills: ['Docker', 'AWS (EC2)', 'Git & GitHub'] },
+          { name: 'Integrations', skills: ['Telegram Bot'] }
+        ];
+
+        function groupSkills() {
+          var heading = Array.prototype.filter.call(
+            document.querySelectorAll('h3'),
+            function (h) { return h.textContent.trim() === 'My Skills'; }
+          )[0];
+          if (!heading) return;
+
+          var container = heading.nextElementSibling;
+          if (!container || container.classList.contains('aiv-skills-grouped')) return;
+
+          var pills = Array.prototype.map.call(container.querySelectorAll(':scope > span'), function (span) {
+            return { text: span.textContent.trim(), className: span.className };
+          });
+          if (!pills.length) return;
+          var pillClassName = pills[0].className;
+
+          var used = {};
+          var wrap = document.createElement('div');
+          wrap.className = 'aiv-skills-grouped max-w-3xl mx-auto';
+
+          SKILL_CATEGORIES.forEach(function (cat) {
+            var items = pills.filter(function (p) {
+              return cat.skills.indexOf(p.text) !== -1;
+            });
+            if (!items.length) return;
+            items.forEach(function (p) { used[p.text] = true; });
+
+            var group = document.createElement('div');
+            group.className = 'aiv-skill-group';
+
+            var label = document.createElement('div');
+            label.className = 'aiv-skill-label mb-2';
+            label.textContent = cat.name;
+            group.appendChild(label);
+
+            var row = document.createElement('div');
+            row.className = 'flex flex-wrap justify-center gap-3';
+            items.forEach(function (p) {
+              var span = document.createElement('span');
+              span.className = pillClassName;
+              span.textContent = p.text;
+              row.appendChild(span);
+            });
+            group.appendChild(row);
+            wrap.appendChild(group);
+          });
+
+          var leftovers = pills.filter(function (p) { return !used[p.text]; });
+          if (leftovers.length) {
+            var group = document.createElement('div');
+            group.className = 'aiv-skill-group';
+            var label = document.createElement('div');
+            label.className = 'aiv-skill-label mb-2';
+            label.textContent = 'Other';
+            group.appendChild(label);
+            var row = document.createElement('div');
+            row.className = 'flex flex-wrap justify-center gap-3';
+            leftovers.forEach(function (p) {
+              var span = document.createElement('span');
+              span.className = pillClassName;
+              span.textContent = p.text;
+              row.appendChild(span);
+            });
+            group.appendChild(row);
+            wrap.appendChild(group);
+          }
+
+          container.replaceWith(wrap);
+        }
+
+        function inject() {
+          fixSocialLinksAccessibility();
+          groupSkills();
+
+          var row = document.querySelector('header nav > div');
+          if (!row || row.querySelector('.aiv-extra')) return;
+
+          var extra = document.createElement('div');
+          extra.className = 'aiv-extra';
+
+          var cvBtn = document.createElement('a');
+          cvBtn.href = CV_HREF;
+          cvBtn.download = 'Ali_Ismoilov_CV.pdf';
+          cvBtn.className = 'aiv-cv-btn aiv-cv-btn-desktop';
+          cvBtn.innerHTML = cvIconSvg + '<span>Download CV</span>';
+          extra.appendChild(cvBtn);
+
+          hamburgerBtn = document.createElement('button');
+          hamburgerBtn.type = 'button';
+          hamburgerBtn.className = 'aiv-hamburger';
+          hamburgerBtn.setAttribute('aria-label', 'Open menu');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+          hamburgerBtn.innerHTML = burgerSvg;
+          hamburgerBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            toggleMenu();
+          });
+          extra.appendChild(hamburgerBtn);
+
+          row.appendChild(extra);
+
+          if (!mobileMenu) mobileMenu = buildMobileMenu();
+        }
+
+        document.addEventListener('click', function (e) {
+          if (!menuOpen) return;
+          if (mobileMenu && mobileMenu.contains(e.target)) return;
+          if (hamburgerBtn && hamburgerBtn.contains(e.target)) return;
+          closeMenu();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeMenu();
+        });
+        window.addEventListener('resize', function () {
+          if (window.innerWidth >= 768) closeMenu();
+        });
+
+        var observer = new MutationObserver(function () {
+          var header = document.querySelector('header nav > div');
+          if (header && !header.querySelector('.aiv-extra')) inject();
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+
+        inject();
+      })();
+    </script>
   </body>
 </html>

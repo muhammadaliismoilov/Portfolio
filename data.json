@@ -75,7 +75,7 @@
     },
     "projects": [
       {
-        "description": "An advanced, autonomous management ecosystem for modern education centers \u2014 live, fully functional, and deployed in production. Built on Event-Driven Architecture with real-time monitoring, it features a custom notification engine (WebSockets + NestJS Task Scheduling) that automates teacher reminders and attendance tracking, role-based access for admins, managers, and teachers, and a proactive audit trail for every payment via TypeORM Subscribers. Explore the live demo \u2014 Login: alishadmin, Password: alishadmin.",
+        "description": "An education center management backend \u2014 live, fully functional, and deployed in production, with subdomain-based multi-branch routing. Automates monthly student billing via a distributed-lock, chunked cron job that prevents duplicate invoices across instances, and manages the full contract lifecycle \u2014 generation, approval, e-signing, and PDF export via Puppeteer. Features 4-tier RBAC (Superadmin, Admin, Manager, Teacher), Face-ID attendance tracking, financial reporting with Excel export, and an IP-whitelisted admin panel. Explore the live demo \u2014 Login: alishadmin, Password: alishadmin.",
         "githubLink": "https://github.com/muhammadaliismoilov/education-crm-backend",
         "id": "project-3",
         "imageAlias": "eduFlowCrmProject",
@@ -105,7 +105,7 @@
         "githubLink": "https://github.com/muhammadaliismoilov/Market",
         "id": "project-1",
         "imageAlias": "aliMarketProject",
-        "swaggerLink": "http://212.8.226.173:4005/api/docs",
+        "swaggerLink": "",
         "technologies": [
           "Node.js",
           "TypeScript",
