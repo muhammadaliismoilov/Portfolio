@@ -166,7 +166,8 @@
       "Drizzle ORM",
       "Mongoose",
       "JWT",
-      "Telegram Bot"
+      "Telegram Bot",
+      "WebSocket"
     ],
     "socialLinks": {
       "github": "https://github.com/muhammadaliismoilov",
