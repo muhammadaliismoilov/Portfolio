@@ -101,17 +101,179 @@
         .aiv-mobile-menu { display: none; }
       }
 
-      .aiv-skills-grouped { display: flex; flex-direction: column; align-items: center; }
-      .aiv-skill-group { margin-bottom: 24px; }
-      .aiv-skill-group:last-child { margin-bottom: 0; }
+      .aiv-skills-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 36px 24px;
+        text-align: center;
+      }
+      @media (max-width: 900px) { .aiv-skills-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 480px) { .aiv-skills-grid { grid-template-columns: 1fr; } }
       .aiv-skill-label {
         text-align: center;
         font-size: 11px;
         font-weight: 700;
         letter-spacing: 1.6px;
         text-transform: uppercase;
-        color: rgb(103 232 249);
-        opacity: 0.75;
+        color: rgb(34 211 238);
+        margin-bottom: 14px;
+      }
+      .aiv-skills-col-list { display: flex; flex-direction: column; gap: 10px; }
+      .aiv-skills-col-item {
+        font-size: 14px;
+        color: rgb(156 163 175);
+        transition: color .15s ease;
+      }
+      .aiv-skills-col-item:hover { color: rgb(255 255 255); }
+
+      /* ---- Hero rebuild ---- */
+      .aiv-hero-rebuilt { text-align: left !important; }
+      .aiv-hero-wrap {
+        display: grid;
+        grid-template-columns: 1.1fr .9fr;
+        gap: 48px;
+        align-items: center;
+        width: 100%;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      @media (max-width: 900px) {
+        .aiv-hero-wrap { grid-template-columns: 1fr; }
+        .aiv-hero-visual { display: none; }
+      }
+      .aiv-hero-role {
+        font-family: ui-monospace, monospace;
+        font-size: clamp(1.05rem, 2vw, 1.3rem);
+        color: rgb(34 211 238);
+        margin: 4px 0 20px;
+        min-height: 1.6em;
+      }
+      .aiv-cursor {
+        display: inline-block; width: 2px; height: 1em;
+        background: rgb(34 211 238); margin-left: 3px; vertical-align: -2px;
+        animation: aiv-blink 1s step-end infinite;
+      }
+      @keyframes aiv-blink { 50% { opacity: 0; } }
+      .aiv-hero-bio { max-width: 52ch; font-size: 16px; line-height: 1.6; color: rgb(156 163 175); margin: 0 0 30px; }
+      .aiv-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 34px; }
+      .aiv-hero-btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        padding: 12px 26px; border-radius: 9999px;
+        font-size: 14px; font-weight: 600; text-decoration: none;
+        transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease, color .15s ease;
+      }
+      .aiv-hero-btn-primary { background: rgb(34 211 238); color: rgb(17 24 39); }
+      .aiv-hero-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(34,211,238,.3); }
+      .aiv-hero-btn-outline { border: 1px solid rgba(34,211,238,.5); color: rgb(34 211 238); }
+      .aiv-hero-btn-outline:hover { background: rgba(34,211,238,.12); }
+      .aiv-hero-social { display: flex; gap: 18px; margin-bottom: 48px; }
+      .aiv-hero-social a { color: rgb(156 163 175); transition: color .15s ease; }
+      .aiv-hero-social a:hover { color: rgb(34 211 238); }
+      .aiv-hero-social svg { width: 24px; height: 24px; }
+      .aiv-contact-social svg { width: 36px !important; height: 36px !important; }
+
+      .aiv-project-desc {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .aiv-project-card:hover .aiv-project-desc {
+        -webkit-line-clamp: unset !important;
+        overflow: visible;
+      }
+
+      .aiv-exp-tech { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+      .aiv-exp-tech span {
+        font-size: 12px;
+        padding: 4px 12px;
+        border-radius: 9999px;
+        border: 1px solid rgba(34,211,238,.4);
+        color: rgb(34 211 238);
+        background: rgba(34,211,238,.06);
+      }
+      .aiv-stats-row { display: flex; gap: 36px; flex-wrap: wrap; }
+      .aiv-stat-num { font-size: 26px; font-weight: 800; color: #fff; }
+      .aiv-stat-label { font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: rgb(107 114 128); margin-top: 2px; }
+
+      .aiv-code-card {
+        background: rgb(31 41 55);
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 30px 60px -20px rgba(0,0,0,.6);
+      }
+      .aiv-code-card-head {
+        display: flex; align-items: center; gap: 8px;
+        padding: 12px 16px; background: rgba(255,255,255,.03);
+        border-bottom: 1px solid rgba(255,255,255,.08);
+      }
+      .aiv-traffic { display: flex; gap: 6px; }
+      .aiv-traffic span { width: 11px; height: 11px; border-radius: 50%; }
+      .aiv-traffic span:nth-child(1) { background: #ff5f56; }
+      .aiv-traffic span:nth-child(2) { background: #ffbd2e; }
+      .aiv-traffic span:nth-child(3) { background: #27c93f; }
+      .aiv-code-card-head .aiv-fname { margin-left: 6px; font-family: ui-monospace, monospace; font-size: 12px; color: rgb(107 114 128); }
+      .aiv-code-card pre { margin: 0; padding: 22px 20px; font-family: ui-monospace, monospace; font-size: 13px; line-height: 1.8; color: rgb(209 213 219); overflow-x: auto; }
+      .aiv-code-card .aiv-k { color: #7dd3fc; }
+      .aiv-code-card .aiv-s { color: #a5f3a5; }
+      .aiv-code-card .aiv-c { color: #6b7484; font-style: italic; }
+      .aiv-code-card .aiv-p { color: #f0abfc; }
+
+      .aiv-marquee-wrap {
+        border-top: 1px solid rgb(55 65 81);
+        border-bottom: 1px solid rgb(55 65 81);
+        overflow: hidden;
+        padding: 18px 0;
+        background: rgb(31 41 55);
+      }
+      .aiv-marquee-track { display: flex; width: max-content; animation: aiv-marquee 32s linear infinite; }
+      @media (prefers-reduced-motion: reduce) { .aiv-marquee-track { animation: none; } }
+      .aiv-marquee-track span {
+        font-family: ui-monospace, monospace;
+        font-size: 13px; color: rgb(107 114 128);
+        padding: 0 22px; white-space: nowrap;
+        border-right: 1px solid rgb(55 65 81);
+      }
+      @keyframes aiv-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+      /* ---- Contact: live GitHub activity card ---- */
+      .aiv-activity-card {
+        margin-top: 40px;
+        padding: 22px 24px;
+        border-radius: 14px;
+        background: rgb(31 41 55);
+        border: 1px solid rgba(255,255,255,.08);
+        text-align: center;
+      }
+      .aiv-activity-label {
+        display: inline-flex; align-items: center; gap: 8px;
+        font-family: ui-monospace, monospace;
+        font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+        color: rgb(156 163 175);
+        margin-bottom: 18px;
+      }
+      .aiv-activity-dot {
+        width: 7px; height: 7px; border-radius: 50%;
+        background: rgb(34 211 238);
+        box-shadow: 0 0 0 3px rgba(34,211,238,.25);
+        animation: aiv-pulse 1.6s ease-in-out infinite;
+      }
+      @keyframes aiv-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .4; transform: scale(.72); } }
+      .aiv-activity-units { display: flex; justify-content: center; align-items: flex-start; gap: 16px; margin-bottom: 14px; }
+      .aiv-activity-unit { min-width: 48px; }
+      .aiv-activity-num {
+        display: inline-block;
+        font-size: 30px; font-weight: 800; color: #fff;
+        font-variant-numeric: tabular-nums;
+      }
+      .aiv-activity-num.aiv-flip { animation: aiv-flip .35s ease; }
+      @keyframes aiv-flip { 0% { transform: translateY(-6px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+      .aiv-activity-sep { font-size: 26px; font-weight: 800; color: rgb(75 85 99); margin-top: 2px; }
+      .aiv-activity-unitlabel { font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: rgb(107 114 128); margin-top: 2px; }
+      .aiv-activity-date { font-size: 13px; color: rgb(107 114 128); }
+      @media (prefers-reduced-motion: reduce) {
+        .aiv-activity-dot { animation: none; }
+        .aiv-activity-num.aiv-flip { animation: none; }
       }
     </style>
   </head>
@@ -198,8 +360,8 @@
           { name: 'Backend & Frameworks', skills: ['Node.js', 'Express.js', 'NestJS'] },
           { name: 'Databases', skills: ['PostgreSQL', 'MongoDB', 'Redis'] },
           { name: 'ORMs & Data Access', skills: ['TypeORM', 'Drizzle ORM', 'Sequelize', 'Mongoose'] },
-          { name: 'API & Auth', skills: ['REST API', 'JWT', 'Swagger', 'Postman'] },
-          { name: 'DevOps & Tools', skills: ['Docker', 'AWS (EC2)', 'Git & GitHub'] },
+          { name: 'API & Auth', skills: ['REST API', 'WebSocket', 'JWT', 'Swagger', 'Postman'] },
+          { name: 'DevOps & Tools', skills: ['Docker', 'Docker Compose', 'Nginx', 'GitHub Actions', 'CI/CD', 'Linux / VPS', 'Git & GitHub', 'AWS (EC2)', 'Vercel'] },
           { name: 'Integrations', skills: ['Telegram Bot'] }
         ];
 
@@ -211,17 +373,35 @@
           if (!heading) return;
 
           var container = heading.nextElementSibling;
-          if (!container || container.classList.contains('aiv-skills-grouped')) return;
+          if (!container || container.classList.contains('aiv-skills-grid')) return;
 
           var pills = Array.prototype.map.call(container.querySelectorAll(':scope > span'), function (span) {
-            return { text: span.textContent.trim(), className: span.className };
+            return { text: span.textContent.trim() };
           });
           if (!pills.length) return;
-          var pillClassName = pills[0].className;
 
           var used = {};
-          var wrap = document.createElement('div');
-          wrap.className = 'aiv-skills-grouped max-w-3xl mx-auto';
+          var grid = document.createElement('div');
+          grid.className = 'aiv-skills-grid max-w-4xl mx-auto';
+
+          function buildColumn(name, items) {
+            var col = document.createElement('div');
+            var label = document.createElement('div');
+            label.className = 'aiv-skill-label';
+            label.textContent = name;
+            col.appendChild(label);
+
+            var list = document.createElement('div');
+            list.className = 'aiv-skills-col-list';
+            items.forEach(function (p) {
+              var item = document.createElement('div');
+              item.className = 'aiv-skills-col-item';
+              item.textContent = p.text;
+              list.appendChild(item);
+            });
+            col.appendChild(list);
+            grid.appendChild(col);
+          }
 
           SKILL_CATEGORIES.forEach(function (cat) {
             var items = pills.filter(function (p) {
@@ -229,53 +409,296 @@
             });
             if (!items.length) return;
             items.forEach(function (p) { used[p.text] = true; });
-
-            var group = document.createElement('div');
-            group.className = 'aiv-skill-group';
-
-            var label = document.createElement('div');
-            label.className = 'aiv-skill-label mb-2';
-            label.textContent = cat.name;
-            group.appendChild(label);
-
-            var row = document.createElement('div');
-            row.className = 'flex flex-wrap justify-center gap-3';
-            items.forEach(function (p) {
-              var span = document.createElement('span');
-              span.className = pillClassName;
-              span.textContent = p.text;
-              row.appendChild(span);
-            });
-            group.appendChild(row);
-            wrap.appendChild(group);
+            buildColumn(cat.name, items);
           });
 
           var leftovers = pills.filter(function (p) { return !used[p.text]; });
-          if (leftovers.length) {
-            var group = document.createElement('div');
-            group.className = 'aiv-skill-group';
-            var label = document.createElement('div');
-            label.className = 'aiv-skill-label mb-2';
-            label.textContent = 'Other';
-            group.appendChild(label);
+          if (leftovers.length) buildColumn('Other', leftovers);
+
+          container.replaceWith(grid);
+        }
+
+        var EMAIL_ADDRESS = 'rustammuborakmuhammadali@gmail.com';
+        var MAIL_HREF = 'mailto:' + EMAIL_ADDRESS;
+
+        var SOCIAL_ICONS = {
+          mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+          github: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.72-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.41-5.27 5.69.42.36.78 1.08.78 2.18 0 1.57-.01 2.84-.01 3.23 0 .31.21.67.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>',
+          linkedin: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>',
+          telegram: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.25 1.1-.9 1.37-1.83.86l-5.06-3.73-2.44 2.35c-.27.27-.5.5-1.02.5l.36-5.16 9.4-8.5c.41-.36-.09-.56-.63-.2L6.3 12.2 1.2 10.6c-1.1-.34-1.12-1.1.24-1.63L20.5 2.9c.92-.34 1.72.2 1.4 1.4Z"/></svg>'
+        };
+
+        var MARQUEE_SKILLS = [
+          'JavaScript', 'TypeScript', 'Node.js', 'Express.js', 'NestJS', 'MongoDB',
+          'PostgreSQL', 'AWS (EC2)', 'REST API', 'Swagger', 'Postman', 'Redis',
+          'Docker', 'Docker Compose', 'Nginx', 'GitHub Actions', 'CI/CD', 'Linux / VPS', 'Vercel',
+          'Git & GitHub', 'Sequelize', 'TypeORM', 'Drizzle ORM',
+          'Mongoose', 'JWT', 'Telegram Bot', 'WebSocket'
+        ];
+
+        function startTypewriter(target) {
+          var words = ['Backend Developer', 'API Architect', 'Node.js Engineer'];
+          if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            target.textContent = words[0];
+            return;
+          }
+          var wi = 0, ci = 0, deleting = false;
+          function tick() {
+            var word = words[wi];
+            if (!deleting) {
+              ci++;
+              target.textContent = word.slice(0, ci);
+              if (ci === word.length) { deleting = true; setTimeout(tick, 1600); return; }
+              setTimeout(tick, 70);
+            } else {
+              ci--;
+              target.textContent = word.slice(0, ci);
+              if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; setTimeout(tick, 300); return; }
+              setTimeout(tick, 35);
+            }
+          }
+          tick();
+        }
+
+        function rebuildHero() {
+          var section = document.getElementById('home');
+          if (!section || section.classList.contains('aiv-hero-rebuilt')) return;
+
+          var container = section.firstElementChild;
+          if (!container) return;
+
+          var name = (container.querySelector('h1') || {}).textContent || 'Ali Ismoilov';
+          var links = {};
+          container.querySelectorAll('a[href]').forEach(function (a) {
+            if (/github\.com/.test(a.href)) links.github = a.href;
+            else if (/linkedin\.com/.test(a.href)) links.linkedin = a.href;
+            else if (/t\.me\//.test(a.href)) links.telegram = a.href;
+          });
+
+          section.classList.add('aiv-hero-rebuilt');
+
+          var wrap = document.createElement('div');
+          wrap.className = 'aiv-hero-wrap';
+
+          var content = document.createElement('div');
+          content.className = 'aiv-hero-content';
+          content.innerHTML =
+            '<h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-2">' + name + '</h1>' +
+            '<div class="aiv-hero-role"><span class="aiv-role-text"></span><span class="aiv-cursor"></span></div>' +
+            '<p class="aiv-hero-bio">Backend Developer specializing in scalable RESTful APIs with Node.js and TypeScript &mdash; clean architecture, JWT auth &amp; RBAC, SQL/NoSQL schema design, and real-world integrations like Telegram bots. Currently open to internship or junior backend roles.</p>' +
+            '<div class="aiv-hero-ctas">' +
+              '<a href="#projects" class="aiv-hero-btn aiv-hero-btn-primary">View Projects</a>' +
+              '<a href="#contact" class="aiv-hero-btn aiv-hero-btn-outline">Get in Touch</a>' +
+            '</div>' +
+            '<div class="aiv-hero-social">' +
+              '<a href="' + MAIL_HREF + '" aria-label="Ali Ismoilov — Email">' + SOCIAL_ICONS.mail + '</a>' +
+              (links.github ? '<a href="' + links.github + '" target="_blank" rel="noopener noreferrer" aria-label="Ali Ismoilov — GitHub profile">' + SOCIAL_ICONS.github + '</a>' : '') +
+              (links.linkedin ? '<a href="' + links.linkedin + '" target="_blank" rel="noopener noreferrer" aria-label="Ali Ismoilov — LinkedIn profile">' + SOCIAL_ICONS.linkedin + '</a>' : '') +
+              (links.telegram ? '<a href="' + links.telegram + '" target="_blank" rel="noopener noreferrer" aria-label="Ali Ismoilov — Telegram">' + SOCIAL_ICONS.telegram + '</a>' : '') +
+            '</div>' +
+            '<div class="aiv-stats-row">' +
+              '<div><div class="aiv-stat-num">3</div><div class="aiv-stat-label">Projects</div></div>' +
+              '<div><div class="aiv-stat-num">3</div><div class="aiv-stat-label">Roles Held</div></div>' +
+              '<div><div class="aiv-stat-num">27+</div><div class="aiv-stat-label">Technologies</div></div>' +
+              '<div><div class="aiv-stat-num">2</div><div class="aiv-stat-label">Certifications</div></div>' +
+            '</div>';
+
+          var visual = document.createElement('div');
+          visual.className = 'aiv-hero-visual';
+          visual.innerHTML =
+            '<div class="aiv-code-card">' +
+              '<div class="aiv-code-card-head"><span class="aiv-traffic"><span></span><span></span><span></span></span><span class="aiv-fname">developer.ts</span></div>' +
+              '<pre><span class="aiv-k">const</span> developer = {\n' +
+              '  name: <span class="aiv-s">\'' + name + '\'</span>,\n' +
+              '  role: <span class="aiv-s">\'Backend Developer\'</span>,\n' +
+              '  focus: [<span class="aiv-s">\'Node.js\'</span>, <span class="aiv-s">\'NestJS\'</span>, <span class="aiv-s">\'PostgreSQL\'</span>],\n' +
+              '  status: <span class="aiv-s">\'open_to_work\'</span>, <span class="aiv-c">// true</span>\n' +
+              '};\n\n' +
+              '<span class="aiv-k">export default</span> <span class="aiv-p">developer</span>;</pre>' +
+            '</div>';
+
+          wrap.appendChild(content);
+          wrap.appendChild(visual);
+          container.innerHTML = '';
+          container.appendChild(wrap);
+
+          startTypewriter(content.querySelector('.aiv-role-text'));
+        }
+
+        function rebuildContactSocial() {
+          var contact = document.getElementById('contact');
+          if (!contact || contact.dataset.aivContactSocial) return;
+
+          var mailLink = contact.querySelector('a[href^="mailto:"]');
+          var socialRow = contact.querySelector('.space-x-6');
+          if (!mailLink || !socialRow) return;
+          contact.dataset.aivContactSocial = '1';
+
+          mailLink.remove();
+
+          var a = document.createElement('a');
+          a.href = MAIL_HREF;
+          a.className = socialRow.firstElementChild ? socialRow.firstElementChild.className : 'text-gray-400 hover:text-white transition-colors';
+          a.setAttribute('aria-label', 'Ali Ismoilov — Email');
+          a.innerHTML = SOCIAL_ICONS.mail;
+          socialRow.classList.add('aiv-contact-social');
+          socialRow.insertBefore(a, socialRow.firstElementChild);
+        }
+
+        var EXPERIENCE_TECH = {
+          'Mentor': ['JavaScript', 'TypeScript', 'Node.js', 'Express.js', 'NestJS', 'REST API', 'MongoDB', 'PostgreSQL'],
+          'Backend Developer Intern': ['Node.js', 'Drizzle ORM', 'PostgreSQL', 'REST API', 'Swagger'],
+          'Teacher Assistant': ['Node.js', 'JavaScript', 'Express.js']
+        };
+
+        function equalizeProjectCards() {
+          var section = document.getElementById('projects');
+          if (!section || section.dataset.aivEqualized) return;
+
+          var descs = Array.prototype.filter.call(
+            section.querySelectorAll('p'),
+            function (p) { return p.classList.contains('text-gray-400') && p.classList.contains('text-sm'); }
+          );
+          if (descs.length < 2) return;
+          section.dataset.aivEqualized = '1';
+
+          descs.forEach(function (p) {
+            p.classList.add('aiv-project-desc');
+            var card = p.closest('.group') || p.parentElement.parentElement;
+            if (card) card.classList.add('aiv-project-card');
+          });
+
+          var lineCounts = descs.map(function (p) {
+            var cs = getComputedStyle(p);
+            var lh = parseFloat(cs.lineHeight);
+            if (!lh || isNaN(lh)) lh = parseFloat(cs.fontSize) * 1.5;
+            return Math.max(1, Math.round(p.scrollHeight / lh));
+          });
+          var minLines = Math.max(1, Math.min.apply(null, lineCounts));
+
+          descs.forEach(function (p) { p.style.webkitLineClamp = String(minLines); });
+        }
+
+        function addExperienceTechPills() {
+          var section = document.getElementById('experience');
+          if (!section || section.dataset.aivTechPills) return;
+
+          var cards = section.querySelectorAll('.bg-gray-800.rounded-lg');
+          if (!cards.length) return;
+          section.dataset.aivTechPills = '1';
+
+          cards.forEach(function (card) {
+            var h3 = card.querySelector('h3');
+            var title = h3 ? h3.textContent.trim() : '';
+            var techs = EXPERIENCE_TECH[title];
+            if (!techs || !techs.length) return;
+
             var row = document.createElement('div');
-            row.className = 'flex flex-wrap justify-center gap-3';
-            leftovers.forEach(function (p) {
+            row.className = 'aiv-exp-tech';
+            techs.forEach(function (t) {
               var span = document.createElement('span');
-              span.className = pillClassName;
-              span.textContent = p.text;
+              span.textContent = t;
               row.appendChild(span);
             });
-            group.appendChild(row);
-            wrap.appendChild(group);
+            card.appendChild(row);
+          });
+        }
+
+        function insertMarquee() {
+          var home = document.getElementById('home');
+          if (!home || document.querySelector('.aiv-marquee-wrap')) return;
+
+          var wrap = document.createElement('div');
+          wrap.className = 'aiv-marquee-wrap';
+          var track = document.createElement('div');
+          track.className = 'aiv-marquee-track';
+          var items = MARQUEE_SKILLS.concat(MARQUEE_SKILLS)
+            .map(function (s) { return '<span>' + s + '</span>'; })
+            .join('');
+          track.innerHTML = items;
+          wrap.appendChild(track);
+
+          home.insertAdjacentElement('afterend', wrap);
+        }
+
+        var GITHUB_EVENTS_API = 'https://api.github.com/users/muhammadaliismoilov/events/public';
+        var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        function formatActivityDate(d) {
+          var hh = String(d.getHours()).padStart(2, '0');
+          var mm = String(d.getMinutes()).padStart(2, '0');
+          return d.getDate() + ' ' + MONTH_NAMES[d.getMonth()] + ' ' + d.getFullYear() + ' at ' + hh + ':' + mm;
+        }
+
+        function renderActivityCard(mount, since) {
+          var card = document.createElement('div');
+          card.className = 'aiv-activity-card';
+
+          function unit(u, label) {
+            return '<div class="aiv-activity-unit"><span class="aiv-activity-num" data-u="' + u + '">00</span>' +
+              '<div class="aiv-activity-unitlabel">' + label + '</div></div>';
+          }
+          var sep = '<span class="aiv-activity-sep">:</span>';
+
+          card.innerHTML =
+            '<div class="aiv-activity-label"><span class="aiv-activity-dot"></span>Last active on GitHub</div>' +
+            '<div class="aiv-activity-units">' +
+              unit('d', 'DAYS') + sep + unit('h', 'HRS') + sep + unit('m', 'MIN') + sep + unit('s', 'SEC') +
+            '</div>' +
+            '<div class="aiv-activity-date">' + formatActivityDate(since) + '</div>';
+          mount.appendChild(card);
+
+          var nums = {};
+          ['d', 'h', 'm', 's'].forEach(function (u) { nums[u] = card.querySelector('[data-u="' + u + '"]'); });
+          var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+          function setUnit(u, val) {
+            var el = nums[u];
+            var text = String(val).padStart(2, '0');
+            if (el.textContent === text) return;
+            el.textContent = text;
+            if (!reduceMotion) {
+              el.classList.remove('aiv-flip');
+              void el.offsetWidth;
+              el.classList.add('aiv-flip');
+            }
           }
 
-          container.replaceWith(wrap);
+          function tick() {
+            var diff = Math.max(0, Date.now() - since.getTime());
+            var s = Math.floor(diff / 1000);
+            var d = Math.floor(s / 86400); s -= d * 86400;
+            var h = Math.floor(s / 3600); s -= h * 3600;
+            var m = Math.floor(s / 60); s -= m * 60;
+            setUnit('d', d); setUnit('h', h); setUnit('m', m); setUnit('s', s);
+          }
+          tick();
+          setInterval(tick, 1000);
+        }
+
+        function insertActivityCard() {
+          var mount = document.querySelector('#contact .max-w-lg');
+          if (!mount || mount.dataset.aivActivity) return;
+          mount.dataset.aivActivity = '1';
+
+          fetch(GITHUB_EVENTS_API)
+            .then(function (r) { if (!r.ok) throw new Error('github api error'); return r.json(); })
+            .then(function (events) {
+              if (!events || !events.length || !events[0].created_at) throw new Error('no events');
+              renderActivityCard(mount, new Date(events[0].created_at));
+            })
+            .catch(function () { /* fail silently — no card if GitHub API is unavailable */ });
         }
 
         function inject() {
           fixSocialLinksAccessibility();
           groupSkills();
+          rebuildHero();
+          insertMarquee();
+          insertActivityCard();
+          rebuildContactSocial();
+          addExperienceTechPills();
+          equalizeProjectCards();
 
           var row = document.querySelector('header nav > div');
           if (!row || row.querySelector('.aiv-extra')) return;
