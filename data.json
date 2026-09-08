@@ -18,12 +18,12 @@
       {
         "degree": "Bachelor's Degree in Agricultural Mechanization",
         "institution": "Tashkent Institute of Irrigation and Agricultural Mechanization Engineers National Research University",
-        "years": "September 2020 \u2013 June 2025"
+        "years": "September 2020 – June 2025"
       },
       {
         "degree": "Backend Development (Node.js)",
         "institution": "Najot Ta'lim",
-        "years": "November 2024 \u2013 June 2025"
+        "years": "November 2024 – June 2025"
       }
     ],
     "experience": [
@@ -37,7 +37,7 @@
           "Reviewed homework assignments and provided constructive code feedback"
         ],
         "location": "Shovot, Khorezm Region, Uzbekistan",
-        "period": "October 2025 \u2013 May 2026",
+        "period": "October 2025 – May 2026",
         "title": "Mentor"
       },
       {
@@ -49,7 +49,7 @@
           "Prepared API documentation using Swagger, improving collaboration between frontend and backend teams"
         ],
         "location": "",
-        "period": "August 2025 \u2013 November 2025",
+        "period": "August 2025 – November 2025",
         "title": "Backend Developer Intern"
       },
       {
@@ -61,13 +61,13 @@
           "Checked assignments and tracked students' learning progress"
         ],
         "location": "",
-        "period": "June 2025 \u2013 August 2025",
+        "period": "June 2025 – August 2025",
         "title": "Teacher Assistant"
       }
     ],
     "personalInfo": {
       "address": "Khorezm, Uzbekistan",
-      "bio": "I am a Backend Developer specializing in building robust and scalable RESTful APIs using Node.js and TypeScript, with hands-on experience in SQL (PostgreSQL) and NoSQL (MongoDB) databases, efficient database schema design, clean and maintainable architecture, JWT-based authentication and Role-Based Access Control (RBAC), as well as integrating Telegram Bots and real-world backend systems; I have successfully delivered multiple backend projects, collaborated in team-based environments, mentored junior students, and continuously focus on clean code, efficient architecture, and learning to solve complex backend challenges, and I am currently open to internship or junior backend developer opportunities.",
+      "bio": "I am a Backend Developer specializing in building robust and scalable RESTful APIs using Node.js and TypeScript, with hands-on experience in SQL (PostgreSQL) and NoSQL (MongoDB) databases, efficient database schema design, clean and maintainable architecture, JWT-based authentication and Role-Based Access Control (RBAC), as well as integrating Telegram Bots and real-world backend systems; I have successfully delivered multiple backend projects, collaborated in team-based environments, mentored junior students, and continuously focus on clean code, efficient architecture, and learning to solve complex backend challenges.",
       "email": "rustammuborakmuhammadali@gmail.com",
       "name": "Ali Ismoilov",
       "phone": "+998 94 926 34 33",
@@ -75,8 +75,8 @@
     },
     "projects": [
       {
-        "description": "An education center management backend \u2014 live, fully functional, and deployed in production, with subdomain-based multi-branch routing. Automates monthly student billing via a distributed-lock, chunked cron job that prevents duplicate invoices across instances, and manages the full contract lifecycle \u2014 generation, approval, e-signing, and PDF export via Puppeteer. Features 4-tier RBAC (Superadmin, Admin, Manager, Teacher), Face-ID attendance tracking, financial reporting with Excel export, and an IP-whitelisted admin panel. Explore the live demo \u2014 Login: alishadmin, Password: alishadmin.",
-        "githubLink": "https://github.com/muhammadaliismoilov/education-crm-backend",
+        "description": "An education center management backend — live, fully functional, and deployed in production, with subdomain-based multi-branch routing. Automates monthly student billing via a distributed-lock, chunked cron job that prevents duplicate invoices across instances, and manages the full contract lifecycle — generation, approval, e-signing, and PDF export via Puppeteer. Features 4-tier RBAC (Superadmin, Admin, Manager, Teacher), Face-ID attendance tracking, financial reporting with Excel export, and an IP-whitelisted admin panel. Explore the live demo — Login: alishadmin, Password: alishadmin.",
+        "githubLink": "",
         "id": "project-3",
         "imageAlias": "eduFlowCrmProject",
         "swaggerLink": "https://crm-oquv-markaz.vercel.app/",
@@ -102,7 +102,7 @@
       },
       {
         "description": "A high-performance backend system designed for grocery store automation, focusing on inventory management and transaction integrity. The engine handles complex stock tracking, automated sales reporting, and profit-loss analysis. It utilizes Redis caching to optimize data retrieval speeds and is fully Dockerized for seamless deployment on VPS, ensuring consistent environment reliability across production.",
-        "githubLink": "https://github.com/muhammadaliismoilov/Market",
+        "githubLink": "",
         "id": "project-1",
         "imageAlias": "aliMarketProject",
         "swaggerLink": "",
@@ -120,8 +120,8 @@
         "title": "Market Automation System "
       },
       {
-        "description": "A full-scale ERP + CRM + LMS + BI platform built for private schools, currently in active development across two repositories (backend linked below; frontend: github.com/muhammadaliismoilov/school-erp-crm-lms-bi-frontend). Multi-tenant by design \u2014 a superadmin layer manages unlimited schools and branches with strict data isolation enforced via AsyncLocalStorage-based tenant scoping. Spans 50+ backend modules: turnstile-integrated attendance with Telegram/push alerts, HR and payroll, finance, admissions, LMS, library, transport, and analytics. Hardened with JWT refresh-token rotation, Argon2id hashing, wildcard RBAC permissions, and 2FA, with Sentry and Prometheus/Grafana observability built in. Architected to scale past 1000 users per school deployment.",
-        "githubLink": "https://github.com/muhammadaliismoilov/school-erp-crm-lms-bi_backend",
+        "description": "A full-scale ERP + CRM + LMS + BI platform built for private schools, currently in active development across two repositories. Multi-tenant by design — a superadmin layer manages unlimited schools and branches with strict data isolation enforced via AsyncLocalStorage-based tenant scoping. Spans 50+ backend modules: turnstile-integrated attendance with Telegram/push alerts, HR and payroll, finance, admissions, LMS, library, transport, and analytics. Hardened with JWT refresh-token rotation, Argon2id hashing, wildcard RBAC permissions, and 2FA, with Sentry and Prometheus/Grafana observability built in. Architected to scale past 1000 users per school deployment.",
+        "githubLink": "",
         "id": "project-2",
         "imageAlias": "schoolManagementProject",
         "imageAliases": [

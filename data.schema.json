@@ -132,7 +132,7 @@
             "bio": {
               "type": "string",
               "examples": [
-                "I am a Backend Developer specializing in building robust and scalable RESTful APIs using Node.js and TypeScript, with hands-on experience in SQL (PostgreSQL) and NoSQL (MongoDB) databases, efficient database schema design, clean and maintainable architecture, JWT-based authentication and Role-Based Access Control (RBAC), as well as integrating Telegram Bots and real-world backend systems; I have successfully delivered multiple backend projects, collaborated in team-based environments, mentored junior students, and continuously focus on clean code, efficient architecture, and learning to solve complex backend challenges, and I am currently open to internship or junior backend developer opportunities."
+                "I am a Backend Developer specializing in building robust and scalable RESTful APIs using Node.js and TypeScript, with hands-on experience in SQL (PostgreSQL) and NoSQL (MongoDB) databases, efficient database schema design, clean and maintainable architecture, JWT-based authentication and Role-Based Access Control (RBAC), as well as integrating Telegram Bots and real-world backend systems; I have successfully delivered multiple backend projects, collaborated in team-based environments, mentored junior students, and continuously focus on clean code, efficient architecture, and learning to solve complex backend challenges."
               ],
               "description": "Long text content"
             },

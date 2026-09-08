@@ -26,6 +26,7 @@
     <meta name="twitter:image" content="https://muhammadaliismoilov.github.io/Portfolio/assets/og-cover.png" />
 
     <link rel="icon" type="image/x-icon" href="./assets/profile/my.png">
+    <script src="./i18n.js"></script>
     <script type="module" crossorigin src="./index-UKnA1v2E.js"></script>
     <link rel="stylesheet" crossorigin href="./index-BpmaFVIJ.css">
     <style>
@@ -100,6 +101,33 @@
       @media (min-width: 768px) {
         .aiv-mobile-menu { display: none; }
       }
+
+      .aiv-lang {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        padding: 3px;
+        border: 1px solid rgb(55 65 81);
+        border-radius: 9999px;
+        background-color: rgba(31, 41, 55, .6);
+      }
+      .aiv-lang-btn {
+        border: none;
+        background: transparent;
+        color: rgb(156 163 175);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .5px;
+        line-height: 1;
+        padding: 5px 10px;
+        border-radius: 9999px;
+        cursor: pointer;
+        transition: background-color .15s ease, color .15s ease;
+      }
+      .aiv-lang-btn:hover { color: #fff; }
+      .aiv-lang-btn.aiv-lang-on { background-color: rgb(34 211 238); color: rgb(17 24 39); }
+      .aiv-lang-mobile { display: flex; justify-content: center; margin: 14px 24px 4px; }
+      @media (min-width: 768px) { .aiv-lang-mobile { display: none; } }
 
       .aiv-skills-grid {
         display: grid;
@@ -283,6 +311,135 @@
       (function () {
         var CV_HREF = './assets/Ali_Ismoilov_CV.pdf';
 
+        /* ---------- i18n ---------- */
+        var I18N = window.AIV_I18N || {};
+        var DICT = I18N.dict || {};
+        var LANGS = (I18N.langs && I18N.langs.length) ? I18N.langs : [{ code: 'en', label: 'EN', htmlLang: 'en' }];
+        var STORE_KEY = I18N.storageKey || 'aiv-lang';
+        var ORIG = (typeof WeakMap === 'function') ? new WeakMap() : null;
+
+        function readLang() {
+          var codes = LANGS.map(function (l) { return l.code; });
+          var saved = null;
+          try { saved = localStorage.getItem(STORE_KEY); } catch (e) {}
+          if (saved && codes.indexOf(saved) !== -1) return saved;
+          return codes.indexOf(I18N.defaultLang) !== -1 ? I18N.defaultLang : codes[0];
+        }
+
+        var currentLang = readLang();
+
+        function tr(en) {
+          if (currentLang === 'en') return en;
+          var entry = DICT[en];
+          return (entry && entry[currentLang]) || en;
+        }
+
+        function origValue(node) {
+          if (!ORIG) return node.nodeValue;
+          if (ORIG.has(node)) return ORIG.get(node);
+          ORIG.set(node, node.nodeValue);
+          return node.nodeValue;
+        }
+
+        /* Element ichidagi matnni ASL (inglizcha) holatida qaytaradi */
+        function enTextOf(el) {
+          if (!el) return '';
+          var out = '';
+          var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+          var n;
+          while ((n = w.nextNode())) out += origValue(n);
+          return out.trim();
+        }
+
+        function setEnText(node, value) {
+          if (!node) return;
+          node.nodeValue = value;
+          if (ORIG) ORIG.set(node, value);
+        }
+
+        var TEXT_FILTER = {
+          acceptNode: function (node) {
+            var p = node.parentElement;
+            if (!p) return NodeFilter.FILTER_REJECT;
+            var tag = p.nodeName;
+            if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') return NodeFilter.FILTER_REJECT;
+            if (p.closest('.aiv-no-i18n')) return NodeFilter.FILTER_REJECT;
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        };
+
+        function translateTextNodes(root) {
+          var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, TEXT_FILTER, false);
+          var node;
+          while ((node = walker.nextNode())) {
+            var en = origValue(node);
+            var m = en.match(/^(\s*)([\s\S]*?)(\s*)$/);
+            var core = m[2];
+            if (!core || !DICT[core]) continue;
+            var out = m[1] + tr(core) + m[3];
+            if (node.nodeValue !== out) node.nodeValue = out;
+          }
+        }
+
+        function buildLangSwitcher(extraClass) {
+          var box = document.createElement('div');
+          box.className = 'aiv-lang aiv-no-i18n' + (extraClass ? ' ' + extraClass : '');
+          box.setAttribute('role', 'group');
+          box.setAttribute('aria-label', 'Language / Til / Язык');
+          LANGS.forEach(function (l) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'aiv-lang-btn';
+            b.setAttribute('data-lang', l.code);
+            b.title = l.title || l.label;
+            b.textContent = l.label;
+            b.addEventListener('click', function (e) {
+              e.stopPropagation();
+              setLang(l.code);
+              closeMenu();
+            });
+            box.appendChild(b);
+          });
+          return box;
+        }
+
+        function syncLangButtons() {
+          document.querySelectorAll('.aiv-lang-btn').forEach(function (b) {
+            var on = b.getAttribute('data-lang') === currentLang;
+            b.classList.toggle('aiv-lang-on', on);
+            b.setAttribute('aria-pressed', String(on));
+          });
+        }
+
+        function setLang(code) {
+          if (code === currentLang) return;
+          currentLang = code;
+          try { localStorage.setItem(STORE_KEY, code); } catch (e) {}
+          applyLang();
+        }
+
+        function applyLang() {
+          var meta = LANGS.filter(function (l) { return l.code === currentLang; })[0] || {};
+          document.documentElement.lang = meta.htmlLang || currentLang;
+          translateTextNodes(document.body);
+          if (hamburgerBtn && !menuOpen) hamburgerBtn.setAttribute('aria-label', tr('Open menu'));
+          refreshActivityDates();
+          restartTypewriter();
+          recomputeProjectClamp();
+          syncLangButtons();
+        }
+
+        var retranslateTimer = null;
+        function scheduleRetranslate() {
+          clearTimeout(retranslateTimer);
+          retranslateTimer = setTimeout(function () {
+            fixProjectLinks();
+            translateTextNodes(document.body);
+            recomputeProjectClamp();
+            syncLangButtons();
+          }, 80);
+        }
+
         var cvIconSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
         var burgerSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
         var closeSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
@@ -321,6 +478,7 @@
         function buildMobileMenu() {
           var menu = document.createElement('div');
           menu.className = 'aiv-mobile-menu';
+          menu.appendChild(buildLangSwitcher('aiv-lang-mobile'));
           navLinks.forEach(function (link) {
             var a = document.createElement('a');
             a.href = link.href;
@@ -368,7 +526,7 @@
         function groupSkills() {
           var heading = Array.prototype.filter.call(
             document.querySelectorAll('h3'),
-            function (h) { return h.textContent.trim() === 'My Skills'; }
+            function (h) { return enTextOf(h) === 'My Skills'; }
           )[0];
           if (!heading) return;
 
@@ -436,25 +594,40 @@
           'Mongoose', 'JWT', 'Telegram Bot', 'WebSocket'
         ];
 
+        var typeTarget = null;
+        var typeTimer = null;
+
         function startTypewriter(target) {
-          var words = ['Backend Developer', 'API Architect', 'Node.js Engineer'];
+          typeTarget = target;
+          restartTypewriter();
+        }
+
+        function restartTypewriter() {
+          var target = typeTarget;
+          if (!target) return;
+          if (typeTimer) { clearTimeout(typeTimer); typeTimer = null; }
+
+          var all = I18N.typeWords || {};
+          var words = all[currentLang] || all.en || ['Backend Developer'];
+
           if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             target.textContent = words[0];
             return;
           }
           var wi = 0, ci = 0, deleting = false;
+          target.textContent = '';
           function tick() {
             var word = words[wi];
             if (!deleting) {
               ci++;
               target.textContent = word.slice(0, ci);
-              if (ci === word.length) { deleting = true; setTimeout(tick, 1600); return; }
-              setTimeout(tick, 70);
+              if (ci === word.length) { deleting = true; typeTimer = setTimeout(tick, 1600); return; }
+              typeTimer = setTimeout(tick, 70);
             } else {
               ci--;
               target.textContent = word.slice(0, ci);
-              if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; setTimeout(tick, 300); return; }
-              setTimeout(tick, 35);
+              if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; typeTimer = setTimeout(tick, 300); return; }
+              typeTimer = setTimeout(tick, 35);
             }
           }
           tick();
@@ -484,8 +657,8 @@
           content.className = 'aiv-hero-content';
           content.innerHTML =
             '<h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-2">' + name + '</h1>' +
-            '<div class="aiv-hero-role"><span class="aiv-role-text"></span><span class="aiv-cursor"></span></div>' +
-            '<p class="aiv-hero-bio">Backend Developer specializing in scalable RESTful APIs with Node.js and TypeScript &mdash; clean architecture, JWT auth &amp; RBAC, SQL/NoSQL schema design, and real-world integrations like Telegram bots. Currently open to internship or junior backend roles.</p>' +
+            '<div class="aiv-hero-role"><span class="aiv-role-text aiv-no-i18n"></span><span class="aiv-cursor"></span></div>' +
+            '<p class="aiv-hero-bio">Backend Developer specializing in scalable RESTful APIs with Node.js and TypeScript &mdash; clean architecture, JWT auth &amp; RBAC, SQL/NoSQL schema design, and real-world integrations like Telegram bots.</p>' +
             '<div class="aiv-hero-ctas">' +
               '<a href="#projects" class="aiv-hero-btn aiv-hero-btn-primary">View Projects</a>' +
               '<a href="#contact" class="aiv-hero-btn aiv-hero-btn-outline">Get in Touch</a>' +
@@ -506,7 +679,7 @@
           var visual = document.createElement('div');
           visual.className = 'aiv-hero-visual';
           visual.innerHTML =
-            '<div class="aiv-code-card">' +
+            '<div class="aiv-code-card aiv-no-i18n">' +
               '<div class="aiv-code-card-head"><span class="aiv-traffic"><span></span><span></span><span></span></span><span class="aiv-fname">developer.ts</span></div>' +
               '<pre><span class="aiv-k">const</span> developer = {\n' +
               '  name: <span class="aiv-s">\'' + name + '\'</span>,\n' +
@@ -551,6 +724,35 @@
           'Teacher Assistant': ['Node.js', 'JavaScript', 'Express.js']
         };
 
+        /* Loyiha kartalari: GitHub havolalari olib tashlanadi, qolgan havola "Link" deb nomlanadi. */
+        function fixProjectLinks() {
+          var section = document.getElementById('projects');
+          if (!section) return;
+
+          section.querySelectorAll('a').forEach(function (a) {
+            var href = a.getAttribute('href') || '';
+            var label = enTextOf(a);
+
+            if (label === 'GitHub' || /github\.com/.test(href)) {
+              var row = a.parentElement;
+              a.remove();
+              if (row && row.children.length === 0) row.remove();
+              return;
+            }
+
+            if (label === 'Swagger') {
+              var w = document.createTreeWalker(a, NodeFilter.SHOW_TEXT, null, false);
+              var n, first = null;
+              while ((n = w.nextNode())) {
+                if (first === null && n.nodeValue.trim()) { first = n; setEnText(n, 'Link'); }
+                else if (n.nodeValue.trim()) setEnText(n, '');
+              }
+            }
+          });
+        }
+
+        var projectDescs = null;
+
         function equalizeProjectCards() {
           var section = document.getElementById('projects');
           if (!section || section.dataset.aivEqualized) return;
@@ -568,15 +770,21 @@
             if (card) card.classList.add('aiv-project-card');
           });
 
-          var lineCounts = descs.map(function (p) {
+          projectDescs = descs;
+          recomputeProjectClamp();
+        }
+
+        function recomputeProjectClamp() {
+          if (!projectDescs || projectDescs.length < 2) return;
+          projectDescs.forEach(function (p) { p.style.webkitLineClamp = ''; });
+          var lineCounts = projectDescs.map(function (p) {
             var cs = getComputedStyle(p);
             var lh = parseFloat(cs.lineHeight);
             if (!lh || isNaN(lh)) lh = parseFloat(cs.fontSize) * 1.5;
             return Math.max(1, Math.round(p.scrollHeight / lh));
           });
           var minLines = Math.max(1, Math.min.apply(null, lineCounts));
-
-          descs.forEach(function (p) { p.style.webkitLineClamp = String(minLines); });
+          projectDescs.forEach(function (p) { p.style.webkitLineClamp = String(minLines); });
         }
 
         function addExperienceTechPills() {
@@ -589,7 +797,7 @@
 
           cards.forEach(function (card) {
             var h3 = card.querySelector('h3');
-            var title = h3 ? h3.textContent.trim() : '';
+            var title = enTextOf(h3);
             var techs = EXPERIENCE_TECH[title];
             if (!techs || !techs.length) return;
 
@@ -611,7 +819,7 @@
           var wrap = document.createElement('div');
           wrap.className = 'aiv-marquee-wrap';
           var track = document.createElement('div');
-          track.className = 'aiv-marquee-track';
+          track.className = 'aiv-marquee-track aiv-no-i18n';
           var items = MARQUEE_SKILLS.concat(MARQUEE_SKILLS)
             .map(function (s) { return '<span>' + s + '</span>'; })
             .join('');
@@ -624,10 +832,20 @@
         var GITHUB_EVENTS_API = 'https://api.github.com/users/muhammadaliismoilov/events/public';
         var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+        var activityDates = [];
+
         function formatActivityDate(d) {
           var hh = String(d.getHours()).padStart(2, '0');
           var mm = String(d.getMinutes()).padStart(2, '0');
-          return d.getDate() + ' ' + MONTH_NAMES[d.getMonth()] + ' ' + d.getFullYear() + ' at ' + hh + ':' + mm;
+          var months = (I18N.months && (I18N.months[currentLang] || I18N.months.en)) || MONTH_NAMES;
+          var at = (I18N.dateAt && (I18N.dateAt[currentLang] || I18N.dateAt.en)) || ' at ';
+          return d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear() + at + hh + ':' + mm;
+        }
+
+        function refreshActivityDates() {
+          activityDates.forEach(function (rec) {
+            if (rec.el) rec.el.textContent = formatActivityDate(rec.since);
+          });
         }
 
         function renderActivityCard(mount, since) {
@@ -635,7 +853,7 @@
           card.className = 'aiv-activity-card';
 
           function unit(u, label) {
-            return '<div class="aiv-activity-unit"><span class="aiv-activity-num" data-u="' + u + '">00</span>' +
+            return '<div class="aiv-activity-unit"><span class="aiv-activity-num aiv-no-i18n" data-u="' + u + '">00</span>' +
               '<div class="aiv-activity-unitlabel">' + label + '</div></div>';
           }
           var sep = '<span class="aiv-activity-sep">:</span>';
@@ -645,8 +863,10 @@
             '<div class="aiv-activity-units">' +
               unit('d', 'DAYS') + sep + unit('h', 'HRS') + sep + unit('m', 'MIN') + sep + unit('s', 'SEC') +
             '</div>' +
-            '<div class="aiv-activity-date">' + formatActivityDate(since) + '</div>';
+            '<div class="aiv-activity-date aiv-no-i18n">' + formatActivityDate(since) + '</div>';
           mount.appendChild(card);
+
+          activityDates.push({ el: card.querySelector('.aiv-activity-date'), since: since });
 
           var nums = {};
           ['d', 'h', 'm', 's'].forEach(function (u) { nums[u] = card.querySelector('[data-u="' + u + '"]'); });
@@ -690,21 +910,14 @@
             .catch(function () { /* fail silently — no card if GitHub API is unavailable */ });
         }
 
-        function inject() {
-          fixSocialLinksAccessibility();
-          groupSkills();
-          rebuildHero();
-          insertMarquee();
-          insertActivityCard();
-          rebuildContactSocial();
-          addExperienceTechPills();
-          equalizeProjectCards();
-
+        function injectHeaderExtras() {
           var row = document.querySelector('header nav > div');
           if (!row || row.querySelector('.aiv-extra')) return;
 
           var extra = document.createElement('div');
           extra.className = 'aiv-extra';
+
+          extra.appendChild(buildLangSwitcher('aiv-lang-desktop'));
 
           var cvBtn = document.createElement('a');
           cvBtn.href = CV_HREF;
@@ -730,6 +943,20 @@
           if (!mobileMenu) mobileMenu = buildMobileMenu();
         }
 
+        function inject() {
+          fixSocialLinksAccessibility();
+          groupSkills();
+          rebuildHero();
+          insertMarquee();
+          insertActivityCard();
+          rebuildContactSocial();
+          addExperienceTechPills();
+          fixProjectLinks();
+          equalizeProjectCards();
+          injectHeaderExtras();
+          applyLang();
+        }
+
         document.addEventListener('click', function (e) {
           if (!menuOpen) return;
           if (mobileMenu && mobileMenu.contains(e.target)) return;
@@ -743,9 +970,17 @@
           if (window.innerWidth >= 768) closeMenu();
         });
 
-        var observer = new MutationObserver(function () {
+        var observer = new MutationObserver(function (records) {
           var header = document.querySelector('header nav > div');
           if (header && !header.querySelector('.aiv-extra')) inject();
+
+          for (var i = 0; i < records.length; i++) {
+            var t = records[i].target;
+            var el = (t.nodeType === 1) ? t : t.parentElement;
+            if (el && el.closest && el.closest('.aiv-no-i18n')) continue;
+            scheduleRetranslate();
+            break;
+          }
         });
         observer.observe(document.body, { childList: true, subtree: true });
 
